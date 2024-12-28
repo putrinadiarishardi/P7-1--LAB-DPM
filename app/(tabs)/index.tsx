@@ -40,28 +40,24 @@ const TodosScreen = () => {
         };
         loadTodos();
 
-       
         const gradientColors = [
-            ['#B1F0F7', '#B4DA1A9', '#0A5EB0'],
-            ['#3D3BF3', '#4335A7', '#FFD700'],
-            ['#1F509A', '#FF8C00', '#B1F0F7']
+            ['#77DD77', '#03C03C', '#028A7E'], 
+            ['#B9FBC1', '#43B0A4', '#20B2AA'], 
+            ['#4CAF50', '#008080', '#5FD068'] 
         ];
 
         let index = 0;
         const interval = setInterval(() => {
             index = (index + 1) % gradientColors.length;
-            setGradientAnimation(new Animated.Value(0));
-
-          
             Animated.timing(gradientAnimation, {
                 toValue: 1,
                 duration: 3000, 
                 useNativeDriver: false,
-            }).start();
-
-            
-            gradientAnimation.setValue(0); 
+            }).start(() => {
+                gradientAnimation.setValue(0);
+            });
         }, 3000); 
+
         return () => clearInterval(interval); 
     }, []);
 
@@ -87,7 +83,7 @@ const TodosScreen = () => {
         }
     };
 
-    const handleDeleteTodo = async (id: string) => {
+    const handleDeleteTodo = async (id) => {
         try {
             const token = await AsyncStorage.getItem('token');
             await axios.delete(`${API_URL}/api/todos/${id}`, { headers: { Authorization: `Bearer ${token}` } });
@@ -100,25 +96,14 @@ const TodosScreen = () => {
 
     return (
         <PaperProvider>
-            {}
             <View style={styles.container}>
-            <LinearGradient
-    colors={['#E6E6FA', '#ADD8E6', '#98FF98']} // Lavender, Light Blue, Mint Green
-    start={{ x: 0, y: 0 }}
-    end={{ x: 1, y: 1 }}
-    style={[styles.background, {
-        transform: [
-            {
-                translateX: gradientAnimation.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [0, 200],
-                }),
-            },
-        ],
-    }]}
-/>
-                
-                {/* Content */}
+                <LinearGradient
+                    colors={['#77DD77', '#03C03C', '#028A7E']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.background}
+                />
+
                 <ThemedView style={styles.innerContainer}>
                     <ThemedText style={styles.title} type="title">ToDo List</ThemedText>
                     {loading ? (
@@ -178,7 +163,6 @@ const styles = StyleSheet.create({
     },
     background: {
         ...StyleSheet.absoluteFillObject,
-        position: 'absolute',
         zIndex: -1, 
         borderRadius: 10,
     },
@@ -193,7 +177,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         marginTop: 20,
-        color: '#333',
+        color: '#028A7E',
         textAlign: 'center',
     },
     listContainer: {
@@ -202,10 +186,10 @@ const styles = StyleSheet.create({
     card: {
         marginBottom: 16,
         borderRadius: 10,
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FFFFFF',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.2,
+        shadowOpacity: 0.3,
         shadowRadius: 6,
         elevation: 5,
     },
@@ -227,7 +211,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 16,
         bottom: 16,
-        backgroundColor: '#FFD700',
+        backgroundColor: '#43B0A4',
         elevation: 6,
     },
     inputContainer: {
@@ -242,6 +226,7 @@ const styles = StyleSheet.create({
     },
     addButton: {
         marginTop: 16,
+        backgroundColor: '#77DD77',
     },
     cancelButton: {
         marginTop: 8,
@@ -257,10 +242,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     dialogButton: {
-        backgroundColor: '#28a745',
+        backgroundColor: '#028A7E',
         borderRadius: 5,
     },
-    
 });
 
 export default TodosScreen;

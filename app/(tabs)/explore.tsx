@@ -7,16 +7,21 @@ import { Button, Card, Divider } from 'react-native-paper';
 const ExploreScreen = () => {
     const [searchText, setSearchText] = useState('');
     const [data, setData] = useState([
-        { id: '1', title: 'Eiffel Tower, Paris', description: 'Discover the iconic Eiffel Tower, one of the world\'s most recognized landmarks, with breathtaking views of Paris.' },
-        { id: '2', title: 'Great Barrier Reef, Australia', description: 'Explore the world’s largest coral reef system, full of vibrant marine life and crystal-clear waters.' },
-        { id: '3', title: 'Machu Picchu, Peru', description: 'Experience the ancient Incan city of Machu Picchu, a UNESCO World Heritage site with rich history and breathtaking views.' },
-        { id: '4', title: 'Santorini, Greece', description: 'Known for its white-washed buildings, blue-domed churches, and stunning sunsets over the Aegean Sea.' },
-        { id: '5', title: 'Tokyo, Japan', description: 'Immerse yourself in the bustling metropolis of Tokyo, where tradition and technology meet in vibrant harmony.' },
-        { id: '6', title: 'Grand Canyon, USA', description: 'Explore the Grand Canyon’s natural beauty, offering spectacular views and adventurous activities in the heart of nature.' },
-        { id: '7', title: 'Kyoto, Japan', description: 'Visit Kyoto for its tranquil temples, stunning gardens, and traditional tea houses, especially during cherry blossom season.' },
-        { id: '8', title: 'Victoria Falls, Zimbabwe/Zambia', description: 'Witness the grandeur of Victoria Falls, one of the world’s largest and most spectacular waterfalls.' },
-        { id: '9', title: 'Bora Bora, French Polynesia', description: 'Relax in paradise with overwater bungalows, clear turquoise waters, and a peaceful atmosphere perfect for a getaway.' },
-        { id: '10', title: 'Rome, Italy', description: 'Walk through history in the Eternal City, with landmarks like the Colosseum, Roman Forum, and Vatican City.' },
+        { id: '1', title: 'Naomi Campbell', description: 'Ikon supermodel yang telah tampil di berbagai fashion show besar selama beberapa dekade.' },
+        { id: '2', title: 'Gigi Hadid', description: 'Supermodel modern yang sering berjalan untuk brand seperti Versace, Chanel, dan Victoria\'s Secret.' },
+        { id: '3', title: 'Bella Hadid', description: 'Adik dari Gigi Hadid yang juga menjadi bintang di berbagai runway show ternama.' },
+        { id: '4', title: 'Kendall Jenner', description: 'Supermodel yang tampil untuk brand high-fashion seperti Balmain, Givenchy, dan Prada.' },
+        { id: '5', title: 'Cara Delevingne', description: 'Model dan aktris yang dikenal dengan gaya edgy-nya, tampil untuk Chanel dan Burberry.' },
+        { id: '6', title: 'Joan Smalls', description: 'Model Puerto Rico yang sering tampil di runway Gucci, Givenchy, dan Tom Ford.' },
+        { id: '7', title: 'Adut Akech', description: 'Model asal Sudan-Australia yang menjadi ikon baru dunia fashion.' },
+        { id: '8', title: 'Karlie Kloss', description: 'Supermodel Amerika yang terkenal di runway Victoria\'s Secret dan brand fashion mewah lainnya.' },
+        { id: '9', title: 'Liu Wen', description: 'Supermodel Tiongkok yang menjadi model Asia pertama untuk Victoria\'s Secret.' },
+        { id: '10', title: 'Irina Shayk', description: 'Model asal Rusia yang sering tampil untuk brand seperti Versace dan Givenchy.' },
+        { id: '11', title: 'Cindy Crawford', description: 'Supermodel legendaris yang mendominasi runway tahun 90-an.' },
+        { id: '12', title: 'Claudia Schiffer', description: 'Ikon fashion dari Jerman yang menjadi supermodel terkemuka.' },
+        { id: '13', title: 'Tyra Banks', description: 'Supermodel yang juga terkenal sebagai pembawa acara "America\'s Next Top Model."' },
+        { id: '14', title: 'Alessandra Ambrosio', description: 'Model Brasil yang dikenal melalui fashion show Victoria\'s Secret.' },
+        { id: '15', title: 'Heidi Klum', description: 'Model Jerman yang juga menjadi presenter dan produser acara fashion.' },
     ]);
     const [filteredData, setFilteredData] = useState(data);
 
@@ -31,12 +36,12 @@ const ExploreScreen = () => {
         <ThemedView style={styles.container}>
             <View style={styles.header}>
                 <ThemedText style={styles.welcomeText}>Welcome to Explore!</ThemedText>
-                <ThemedText style={styles.subText}>Discover new destinations and experiences</ThemedText>
+                <ThemedText style={styles.subText}>Discover top fashion show artists</ThemedText>
             </View>
             <View style={styles.searchContainer}>
                 <TextInput
                     style={styles.searchInput}
-                    placeholder="Search destinations..."
+                    placeholder="Search artists..."
                     value={searchText}
                     onChangeText={setSearchText}
                 />
@@ -57,7 +62,7 @@ const ExploreScreen = () => {
                     </Card>
                 )}
                 ListEmptyComponent={
-                    <ThemedText style={styles.emptyText}>No destinations found</ThemedText>
+                    <ThemedText style={styles.emptyText}>No artists found</ThemedText>
                 }
             />
         </ThemedView>
@@ -68,7 +73,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#2E7D32', 
     },
     header: {
         marginBottom: 20,
@@ -77,11 +82,11 @@ const styles = StyleSheet.create({
     welcomeText: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: '#333',
+        color: '#FFFFFF',
     },
     subText: {
         fontSize: 16,
-        color: '#black',
+        color: '#C8E6C9',
         marginTop: 8,
     },
     searchContainer: {
@@ -110,10 +115,10 @@ const styles = StyleSheet.create({
         marginTop: 20,
         textAlign: 'center',
         fontSize: 16,
-        color: '#black',
+        color: '#C8E6C9',
     },
     descriptionText: {
-        color: '#000', // Set description text color to black
+        color: '#black', 
     },
 });
 

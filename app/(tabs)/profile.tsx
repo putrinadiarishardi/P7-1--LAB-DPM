@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, ImageBackground } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
@@ -58,11 +58,7 @@ const ProfileScreen = () => {
 
     return (
         <PaperProvider>
-            <ImageBackground
-                source={require('@/assets/images/favicon1.png')} 
-                style={styles.container}
-                resizeMode="cover"
-            >
+            <ThemedView style={styles.container}>
                 <ThemedView style={styles.contentContainer}>
                     {profile ? (
                         <View style={styles.profileContainer}>
@@ -98,7 +94,7 @@ const ProfileScreen = () => {
                         </Dialog>
                     </Portal>
                 </ThemedView>
-            </ImageBackground>
+            </ThemedView>
         </PaperProvider>
     );
 };
@@ -111,7 +107,8 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        justifyContent: 'center', 
+        backgroundColor: '#2E7D32', 
+        justifyContent: 'center',
     },
     contentContainer: {
         flex: 1,
@@ -124,7 +121,8 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.2,
         shadowRadius: 6,
-        elevation: 5, // For Android shadow
+        elevation: 5, 
+        borderRadius: 10,
     },
     profileContainer: {
         alignItems: 'center',
@@ -137,16 +135,16 @@ const styles = StyleSheet.create({
     username: {
         fontSize: 26,
         fontWeight: 'bold',
-        color: '#333',
+        color: '#FFFFFF', 
     },
     email: {
         fontSize: 18,
-        color: '#666',
+        color: '#C8E6C9', 
         marginTop: 8,
     },
     infoCard: {
         width: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: '#388E3C', 
         borderRadius: 10,
         padding: 18,
         marginBottom: 16,
@@ -158,17 +156,17 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 14,
-        color: '#888',
+        color: '#A5D6A7', 
         marginBottom: 6,
     },
     value: {
         fontSize: 18,
         fontWeight: '600',
-        color: '#333',
+        color: '#FFFFFF',
     },
     logoutButton: {
         marginTop: 24,
-        backgroundColor: '#ff5252',
+        backgroundColor: '#D32F2F', 
         borderRadius: 25,
         paddingVertical: 10,
         paddingHorizontal: 20,
